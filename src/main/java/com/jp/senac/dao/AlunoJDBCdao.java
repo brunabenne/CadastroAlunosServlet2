@@ -25,6 +25,8 @@ public class AlunoJDBCdao {
 
 		String user = "root";
 		String password = "root";
+		
+		//CONECXAO BD
 
 		Connection con =null;
 		try {
@@ -39,7 +41,7 @@ public class AlunoJDBCdao {
 		return con;
 	}
 	
-	//Feito
+	//SELECIONANDO ALUNO NO BD
 	public List<Aluno> listarAlunos () throws SQLException {
 
 		List<Aluno> alunos = new ArrayList<>();
@@ -68,7 +70,7 @@ public class AlunoJDBCdao {
 		return alunos;
 	}
 	
-	//Feito
+	//PESQUISAR ALUNO NO DB POR ID
 	public Aluno pesquisarPorID(Integer id) {
         String query = "Select * from alunos where id =?";
         Aluno aluno = null;
@@ -96,7 +98,7 @@ public class AlunoJDBCdao {
 		return null;
 		}
 	
-	//Feito
+	//EXCLUINDO ALUNOS PELO ID NO BD
 	public void excluirAluno(Integer id) {
 		String query = "delete from alunos where id =?";
 		try {
@@ -113,6 +115,7 @@ public class AlunoJDBCdao {
 	
 	}
 	
+	//ALTERANDO ALUNOS NO BD
 	public void alterarAluno(Aluno aluno) {
 		String query = "update alunos set nome =?,idade=?,semestre=?,genero=?,matricula=? where id =?";
 		try {
@@ -132,7 +135,7 @@ public class AlunoJDBCdao {
 		}
 	}
 	
-	//Feito
+	//INSERINDO NOVO ALUNO NO BD
 	public Aluno cadastrarAluno(Aluno aluno) {
 		String query = "insert into alunos (nome, idade, semestre,genero,matricula) values (?,?,?,?,?)";
 		try {
