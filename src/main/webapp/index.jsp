@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>Sistema de cadastro de Alunos</h1> <br>
+<h1>Sistema de cadastro de Alunos</h1> <br><br>
 
 <h2>Informe seu usuário e senha</h2>
 
