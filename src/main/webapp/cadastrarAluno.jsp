@@ -20,7 +20,7 @@
 <form action="ConfirmarCadastroServlet"  method="post">
 	Nome: <input type="text" name="nome" required><br><br>
 	
-	Idade: <input type="text" name="idade" required><br><br>
+	Idade: <input type="number" name="idade" required><br><br>
 	
 	Semestre:
 	<select name="semestre">

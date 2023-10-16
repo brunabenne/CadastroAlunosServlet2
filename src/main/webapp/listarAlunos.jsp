@@ -48,8 +48,18 @@ Clique <a href="cadastrarAluno.jsp">aqui</a> para cadastrar um novo aluno
 			</tr>
 			<% } %>
 		</table>
+		<br>
+		<form action="PesquisarServlet"  method="post">
+			<select name="tipoPesquisa">
+				<option value="nome">Nome</option>
+				<option value="matricula">Matricula</option>
+			</select>
+			<input type="text" name="valor">
+			<input type="submit">
+		</form>
+		<br>
 <% } %>
-
+<a href="ListarServlet">Voltar</a>
 <a href="LogoutServlet">Sair</a>
 </body>
 </html>

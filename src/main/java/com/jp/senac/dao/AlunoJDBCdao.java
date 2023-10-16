@@ -41,7 +41,7 @@ public class AlunoJDBCdao {
 		return con;
 	}
 	
-	//SELECIONANDO ALUNO NO BD
+	//LISTAR ALUNOS NO BD
 	public List<Aluno> listarAlunos () throws SQLException {
 
 		List<Aluno> alunos = new ArrayList<>();
@@ -73,6 +73,8 @@ public class AlunoJDBCdao {
 	//PESQUISAR ALUNO NO DB POR ID
 	public Aluno pesquisarPorID(Integer id) {
         String query = "Select * from alunos where id =?";
+        
+        
         Aluno aluno = null;
 		try {
 			Connection con = getConexao();
@@ -164,10 +166,46 @@ public class AlunoJDBCdao {
 		return aluno;
 	}
 	
-	public List<Aluno> pesquisa(String valor, String operacao) {
-		String query = "Select * from alunos where nome like %?%";
-		String query2 = "Select * from alunos where matricula like %?%";
-		return null;
+	//PESQUISAR ALUNO NO BD
+	public List<Aluno> pesquisar(String valor, String tipo) {
+		System.out.println(valor);
+		System.out.println(tipo);
+		ArrayList<Aluno> alunos = new ArrayList<>();
+		String query;
+		
+		if(tipo.equals("matricula")) {
+			query = "SELECT * FROM alunos WHERE Matricula = " + valor;
+		}
+		else {
+			System.out.println("Entrei no Else do Nome");
+			query = "SELECT * FROM alunos WHERE nome LIKE '%" + valor + "%'";
+		}
+		
+		try {
+			Connection con = getConexao();
+			PreparedStatement pst = con.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String nome = rs.getString(2);
+				String idade = rs.getString(3);
+				String semestre = rs.getString(4);
+				String genero = rs.getString(5);
+				String matricula = rs.getString(6);
+				alunos.add(new Aluno (id,nome,idade,semestre,genero,matricula));
+			}
+			
+			pst.close();
+			con.close();
+			return alunos;
+		}
+		
+		catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return alunos;
+		
 		
 	}
 

@@ -26,7 +26,7 @@ public class ConfirmarCadastroServlet extends HttpServlet {
 		String semestre = request.getParameter("semestre");
 		
 		
-		
+		//MATRICULA padrão 14 Numeros: [Ano][Mes][Semestre][idade][4 numeros aleatórios] Semestre - 1 ou 2
 		String matricula = "";
 		Random random = new Random();
 		LocalDate dataAtual = LocalDate.now();

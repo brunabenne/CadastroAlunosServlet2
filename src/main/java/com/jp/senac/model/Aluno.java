@@ -1,12 +1,18 @@
 package com.jp.senac.model;
 
+
+
 public class Aluno {
+	
+	//Adicionar ID ao Aluno Modal
+	
 	
 	private int id;
 	private String nome;
 	private String idade;
 	private String semestre;
 	private String genero;
+	//Adicionar matricula ao Model
 	private String matricula;
 	
 	public Aluno() {
